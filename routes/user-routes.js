@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt')
 
 router.param('id', async (req, res, next) => {
   try {
-    const user = await User.findOne({ id: req.params.id })
+    const user = await User.findOne({ where: { id: req.params.id } })
     if (user) {
       req.user = user
       next()
