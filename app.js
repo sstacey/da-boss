@@ -2,7 +2,7 @@ const express = require('express')
 const bcrypt = require('bcrypt')
 const bodyParser = require('body-parser')
 
-const { sequelize, User } = require('./models')
+const { sequelize, User } = require('./db/models')
 
 const app = express()
 app.use(bodyParser.json())
