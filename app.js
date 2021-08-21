@@ -11,9 +11,4 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 mountRoutes(app)
 
-app.listen(3000, () => {
-  console.log('Server up')
-  sequelize.authenticate().then(() => {
-    console.log('DB Connected')
-  })
-})
+module.exports = app
