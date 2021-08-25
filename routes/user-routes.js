@@ -10,7 +10,6 @@ router.param('id', async (req, res, next) => {
     })
     if (user) {
       req.user = user
-      console.log(user)
       next()
     } else {
       res.status(404).send()
