@@ -1,12 +1,16 @@
 const router = require('express').Router()
-const { User } = require('../db/models')
+const { User, Job } = require('../db/models')
 const bcrypt = require('bcrypt')
 
 router.param('id', async (req, res, next) => {
   try {
-    const user = await User.findOne({ where: { id: req.params.id } })
+    const user = await User.findOne({
+      where: { id: req.params.id },
+      include: Job,
+    })
     if (user) {
       req.user = user
+      console.log(user)
       next()
     } else {
       res.status(404).send()
@@ -38,7 +42,7 @@ router.post('/', async (req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
-  res.json(req.user)
+  res.json({ user: req.user })
 })
 
 module.exports = router
