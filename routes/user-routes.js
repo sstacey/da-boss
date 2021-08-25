@@ -46,11 +46,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/:id/jobs', async (req, res) => {
   const { jobId } = req.body
-  const job = await Job.findOne({
-    where: { id: jobId },
-  })
-  console.log(job)
-  // look up job object in the database
+  const job = await Job.findByPk(jobId)
   await req.user.addJob(job)
   res.json(await req.user.getJobs())
 })
