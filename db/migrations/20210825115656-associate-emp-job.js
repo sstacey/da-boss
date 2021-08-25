@@ -21,11 +21,6 @@ module.exports = {
           key: 'id',
         },
       },
-      primary: {
-        allowNull: false,
-        default: true,
-        type: DataTypes.BOOLEAN,
-      },
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE,

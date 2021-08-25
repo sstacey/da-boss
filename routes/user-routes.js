@@ -44,4 +44,15 @@ router.get('/:id', async (req, res) => {
   res.json({ user: req.user })
 })
 
+router.post('/:id/jobs', async (req, res) => {
+  const { jobId } = req.body
+  const job = await Job.findOne({
+    where: { id: jobId },
+  })
+  console.log(job)
+  // look up job object in the database
+  await req.user.addJob(job)
+  res.json(await req.user.getJobs())
+})
+
 module.exports = router

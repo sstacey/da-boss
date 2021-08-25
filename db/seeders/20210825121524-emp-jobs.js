@@ -6,21 +6,18 @@ module.exports = {
       {
         userId: 1,
         jobId: 1,
-        primary: true,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         userId: 1,
         jobId: 2,
-        primary: false,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         userId: 2,
         jobId: 1,
-        primary: true,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
