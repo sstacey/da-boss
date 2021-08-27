@@ -24,21 +24,21 @@ router.get('/', async (req, res) => {
   res.json(users)
 })
 
-router.post('/', async (req, res) => {
-  const { name, email, password } = req.body
-  try {
-    const newUser = await User.create({
-      name,
-      email,
-      password: await bcrypt.hash(password, 10),
-    })
-    res.json({
-      user: { newUser },
-    })
-  } catch (e) {
-    res.status(500).json({ error: e })
-  }
-})
+// router.post('/', async (req, res) => {
+//   const { name, email, password } = req.body
+//   try {
+//     const newUser = await User.create({
+//       name,
+//       email,
+//       password: await bcrypt.hash(password, 10),
+//     })
+//     res.json({
+//       user: { newUser },
+//     })
+//   } catch (e) {
+//     res.status(500).json({ error: e })
+//   }
+// })
 
 router.get('/:id', async (req, res) => {
   res.json({ user: req.user })
